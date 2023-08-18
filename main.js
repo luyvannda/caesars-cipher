@@ -1,8 +1,9 @@
 function rot13(str) {
+  /* This to prevent function error if str is not uppercase  */
+  str.toUpperCase();
 
   // turn string into array to use map() method
   let strArray = Array.from(str);
-  console.log(strArray);
 
   let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -12,14 +13,15 @@ function rot13(str) {
 
   let output = strArray.map((char) => {
 
-    // Check if the char is alphabetic if true shift the alphabet.
+    // Check if the char is alphabetic, if true shift the alphabet.
 
     if (char.toLowerCase() !== char.toUpperCase()) {
 
       return shiftedAlphabet[alphabet.indexOf(char)];
 
     } else {
-      // if char is non-alphabetic like white space and punctuation, preserve them.  
+      // If char is non-alphabetic like white space and punctuation, preserve them.
+
       return char;
     }
   });
